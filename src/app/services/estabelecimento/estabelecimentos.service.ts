@@ -21,8 +21,16 @@ export class EstabelecimentosService {
   }
 
   // Obtem todos os estabelecimentos
-  getEstabelecimentos(): Observable<Estabelecimento[]> {
-    return this.httpClient.get<Estabelecimento[]>(this.url)
+  getEstabelecimentos(search: any): Observable<Estabelecimento[]> {
+
+    var url = '';
+    if(search == undefined){
+      url = this.url
+    }else{
+      url = this.url+'?search[value]='+search
+    }
+
+    return this.httpClient.get<Estabelecimento[]>(url)
       .pipe(
         retry(2),
         catchError(this.handleError))

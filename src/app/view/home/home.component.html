@@ -107,8 +107,29 @@
 		<div class="col-md-12">
 			<div class="input-group mb-3">
 				<label class="input-group-text" for="inputGroupSelect01">Estabelecimento</label>
-				<select class="form-select" >
-				<option *ngFor="let operation of estabelecimentos;" value="{{operation.store_name}}">{{operation.store_name}}</option>
+				<select class="form-select" #search (change)="getEstabelecimentos()">
+          <option value="">Todos</option>
+          <option value="BAR DO JOÃO       ">BAR DO JOÃO       </option>
+          <option value="LOJA DO Ó - MATRIZ">LOJA DO Ó - MATRIZ</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="BAR DO JOÃO       ">BAR DO JOÃO       </option>
+          <option value="BAR DO JOÃO       ">BAR DO JOÃO       </option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="LOJA DO Ó - MATRIZ">LOJA DO Ó - MATRIZ</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="LOJA DO Ó - FILIAL">LOJA DO Ó - FILIAL</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="LOJA DO Ó - MATRIZ">LOJA DO Ó - MATRIZ</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
+          <option value="MERCEARIA 3 IRMÃOS">MERCEARIA 3 IRMÃOS</option>
+          <option value="MERCADO DA AVENIDA">MERCADO DA AVENIDA</option>
 				</select>
 			</div>
 		</div>
@@ -142,7 +163,7 @@
           </tr>
         </tbody>
       </table>
-      <strong>Total</strong>:{{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
+      <strong>Total</strong>: {{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
 </div>
 	<!-- tabela -->
 
