@@ -11,6 +11,7 @@ import { Estabelecimento } from '../../models/estabelecimento';
 export class EstabelecimentosService {
 
   url = 'http://localhost:3000/operations';
+  fileName='cnab';
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -36,20 +37,22 @@ export class EstabelecimentosService {
         catchError(this.handleError))
   }
 
-  addEstabelecimentos(file: File): Observable<HttpEvent<any>> {
+  fileUploadParser(file: File){
+    // console.log(file);
+    if (file) {
+      this.fileName = file.name;
+      const formData = new FormData();
+      formData.append("thumbnail", file);
 
-    let formData = new FormData();
-    formData.append('upload', file);
+      const upload$ = this.httpClient.post(this.url, formData, {
+          reportProgress: true,
+          observe: 'events'
+      });
 
-    let params = new HttpParams();
+      upload$.subscribe(event => {
 
-    const options = {
-      params: params,
-      reportProgress: true,
-    };
-
-    const req = new HttpRequest('POST', this.url, formData, options);
-    return this.httpClient.request(req);
+      })
+    }
   }
 
   // Manipulação de erros

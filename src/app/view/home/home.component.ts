@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
 import { EstabelecimentosService } from '../../services/estabelecimento/estabelecimentos.service';
 import { Estabelecimento } from '../../models/estabelecimento';
 
@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   estabelecimentos: any[];
   total: any;
   @ViewChild("search") search: ElementRef | undefined;
+  @ViewChild("file") file: ElementRef | undefined;
+
 
   constructor(private estabelecimentosService: EstabelecimentosService) {
     this.estabelecimentos = []
@@ -39,7 +41,12 @@ export class HomeComponent implements OnInit {
   }
 
   fileUploadParser(){
-    console.log(this);
+    var file = this.file?.nativeElement.files[0]
+
+    if(file != undefined){
+      // console.log(file);
+      this.estabelecimentosService.fileUploadParser(file)
+    }
   }
 
 }
