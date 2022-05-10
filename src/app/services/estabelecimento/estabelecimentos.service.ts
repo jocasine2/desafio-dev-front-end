@@ -38,11 +38,11 @@ export class EstabelecimentosService {
   }
 
   fileUploadParser(file: File){
-    // console.log(file);
+    //console.log(file);
     if (file) {
       this.fileName = file.name;
       const formData = new FormData();
-      formData.append("thumbnail", file);
+      formData.append("file", file);
 
       const upload$ = this.httpClient.post(this.url, formData, {
           reportProgress: true,
@@ -50,7 +50,7 @@ export class EstabelecimentosService {
       });
 
       upload$.subscribe(event => {
-
+        window.location.reload();
       })
     }
   }
