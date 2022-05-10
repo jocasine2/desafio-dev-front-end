@@ -1,6 +1,17 @@
 # App
 
+## Inicie o projeto e atualize as dependências
+```
+./start_development.sh
+```
+## localhost
+
+[http://localhost:4200/](http://localhost:4200/)
+
+<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+<br>
+<br>
 
 ## Development server
 
