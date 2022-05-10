@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     this.getEstabelecimentos();
   }
 
-   // Chama o serviço para obtém todos os carros
+   // Chama o serviço
    getEstabelecimentos() {
      var s = this.search?.nativeElement.value
     //  console.log(s);

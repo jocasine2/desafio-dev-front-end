@@ -93,9 +93,9 @@
 		<form action="http://localhost:3000/operations" method="post" enctype="multipart/form-data">
 			<div class="mb-3">
 				<label for="exampleFormControlInput1" class="form-label">CNAB</label>
-				<input type="file" name="file" #file class="form-control" placeholder="Name" (change)="fileUploadParser()" >
+				<input type="file" name="file" #file class="form-control" placeholder="Name">
 			</div>
-			<input type="submit" class="btn btn-success" value="Submit Button">
+			<input type="submit" class="btn btn-success" value="Enviar" (click)="fileUploadParser()">
 		</form>
 		<!-- form -->
 
@@ -155,7 +155,7 @@
             <td>{{operation.CPF}}</td>
             <td>{{operation.card_number}}</td>
             <td>{{operation.date}}</td>
-            <td>{{operation.hour}}</td>
+            <td>{{operation.hour| date:'HH:mm:ss'}}</td>
             <td>{{operation.owner}}</td>
             <td>{{operation.store_name}}</td>
             <td>{{operation.transaction_type_id}}</td>
