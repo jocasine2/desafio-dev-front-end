@@ -1,0 +1,14 @@
+# docker-compose
+version: '3.7'
+services:
+  app:
+    build: .
+    command: sh -c "npm start"
+    ports:
+      - 4200:80
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+volumes:
+  node_modules:
